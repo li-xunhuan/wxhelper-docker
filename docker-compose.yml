@@ -1,0 +1,11 @@
+version: "3.3"
+
+services:
+    wxhelper-docker:
+        build: .
+        restart: unless-stopped
+        container_name: wxhelper-docker
+        tty: true
+        ports:
+            - 8080:8080
+            - 19088:19088
