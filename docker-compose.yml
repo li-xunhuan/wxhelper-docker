@@ -8,7 +8,7 @@ services:
       args:
         - WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.8.25/WeChatSetup-3.9.8.25.exe
         - WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.8.25-v2/wxhelper.dll
-    image: wxhelper-docker:3.9.8.25-v2
+    image: lxh01/wxhelper-docker:3.9.8.25-v2
     container_name: wxhelper-docker
     restart: unless-stopped
     tty: true
@@ -20,7 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: wxhelper-docker:3.9.5.81-v11
+    image: lxh01/wxhelper-docker:3.9.5.81-v11
     container_name: wxhelper-docker
     restart: unless-stopped
     tty: true
@@ -35,7 +35,7 @@ services:
       args:
         - WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
         - WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23-v9/wxhelper.dll
-    image: wxhelper-docker:3.9.2.23-v9
+    image: lxh01/wxhelper-docker:3.9.2.23-v9
     container_name: wxhelper-docker
     restart: unless-stopped
     tty: true
