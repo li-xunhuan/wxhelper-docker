@@ -18,9 +18,9 @@ COPY install-wechat.sh install-wechat.sh
 RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && \
     sleep 10 && \
     sudo chown app:app WeChatSetup.exe && \
-     ./install-wechat.sh && \
-     rm -rf WeChatSetup.exe && \
-     rm -rf install-wechat.sh
+    ./install-wechat.sh && \
+    rm -rf WeChatSetup.exe && \
+    rm -rf install-wechat.sh
 
 # 下载wxhelper.dll
 ADD ${WXHELPER_URL} wxhelper.dll

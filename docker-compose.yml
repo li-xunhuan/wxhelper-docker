@@ -1,11 +1,44 @@
 version: "3.3"
 
 services:
-    wxhelper-docker:
-        build: .
-        restart: unless-stopped
-        container_name: wxhelper-docker
-        tty: true
-        ports:
-            - 8080:8080
-            - 19088:19088
+  39825-v2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.8.25/WeChatSetup-3.9.8.25.exe
+        - WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.8.25-v2/wxhelper.dll
+    image: wxhelper-docker:3.9.8.25-v2
+    container_name: wxhelper-docker
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 8080:8080
+      - 19088:19088
+
+  39581-v11:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wxhelper-docker:3.9.5.81-v11
+    container_name: wxhelper-docker
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 8080:8080
+      - 19088:19088
+  
+  39223-v9:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
+        - WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23-v9/wxhelper.dll
+    image: wxhelper-docker:3.9.2.23-v9
+    container_name: wxhelper-docker
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 8080:8080
+      - 19088:19088
