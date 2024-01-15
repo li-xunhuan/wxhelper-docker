@@ -15,6 +15,8 @@ ADD ${WECHAT_URL} WeChatSetup.exe
 
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
+RUN ls -lah
+
 RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 10
 RUN sudo apt install -y net-tools
 RUN sudo chown app:app WeChatSetup.exe && ./install-wechat.sh
