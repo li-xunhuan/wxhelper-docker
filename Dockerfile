@@ -19,7 +19,7 @@ RUN ls -lah
 COPY install-wechat.sh install-wechat.sh
 RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 10
 RUN sudo apt install -y net-tools
-RUN ./install-wechat.sh
+RUN sudo chmod a+x install-wechat.sh && ./install-wechat.sh
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 
 # 下载wxhelper.dll
