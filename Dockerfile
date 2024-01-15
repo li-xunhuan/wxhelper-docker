@@ -8,18 +8,18 @@ WORKDIR /home/app/.wine/drive_c
 
 # 加载注入器
 ADD https://github.com/furacas/DllInjector/releases/download/v1.4.0/DllInjector64.exe DllInjector.exe
-RUN sudo chown app:app DllInjector.exe
+RUN sudo chown app:app DllInjector.exe && sudo chmod a+x DllInjector.exe
 
 # 下载微信
 ADD ${WECHAT_URL} WeChatSetup.exe
+RUN sudo chown app:app WeChatSetup.exe  && sudo chmod a+x WeChatSetup.exe
+RUN ls -lah
 
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
-RUN ls -lah
-
 RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 10
 RUN sudo apt install -y net-tools
-RUN sudo chown app:app WeChatSetup.exe && ./install-wechat.sh
+RUN ./install-wechat.sh
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 
 # 下载wxhelper.dll
