@@ -15,12 +15,10 @@ ADD ${WECHAT_URL} WeChatSetup.exe
 
 # 安装微信
 COPY install-wechat.sh install-wechat.sh
-RUN apt install -y net-tools && bash -c 'nohup /entrypoint.sh 2>&1 &' && \
-    sleep 10 && \
-    sudo chown app:app WeChatSetup.exe && \
-    ./install-wechat.sh && \
-    rm -rf WeChatSetup.exe && \
-    rm -rf install-wechat.sh
+RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 10
+RUN sudo apt install -y net-tools
+RUN sudo chown app:app WeChatSetup.exe && ./install-wechat.sh
+RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 
 # 下载wxhelper.dll
 ADD ${WXHELPER_URL} wxhelper.dll
