@@ -1,0 +1,44 @@
+name: BuildImage
+
+on:
+  push:
+   branches:
+     - main
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    container:
+      # 使用这个镜像，不然Docker无法打包镜像
+      image: catthehacker/ubuntu:act-latest
+
+    steps:
+      - name: Login to Repository
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - name: Build 3.9.8.25 version
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: lxh01/wxhelper-docker:3.9.8.25-v2
+          build-args: |
+            WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.8.25/WeChatSetup-3.9.8.25.exe
+            WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.8.25-v2/wxhelper.dll
+      
+      - name: Build 3.9.5.81 version
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: lxh01/wxhelper-docker:3.9.5.81-v11
+      
+      - name: Build 3.9.8.25 version
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: lxh01/wxhelper-docker:3.9.2.23-v9
+          build-args: |
+            WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
+            WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23-v9/wxhelper.dll
