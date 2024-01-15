@@ -18,6 +18,7 @@ COPY install-wechat.sh install-wechat.sh
 RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && \
     sleep 10 && \
     sudo chown app:app WeChatSetup.exe && \
+    sudo chown app:app install-wechat.sh && \
     ./install-wechat.sh && \
     rm -rf WeChatSetup.exe && \
     rm -rf install-wechat.sh
