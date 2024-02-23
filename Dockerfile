@@ -36,4 +36,5 @@ RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 EXPOSE 5900 19088
 
 COPY cmd.sh /cmd.sh
+RUN chmod +x /cmd.sh
 CMD ["/cmd.sh"]
