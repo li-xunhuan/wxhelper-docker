@@ -7,6 +7,7 @@ function install() {
         NOTFOUND=$?
         echo $NOTFOUND
         if [ "$NOTFOUND" == "0" ]; then
+            echo "微信安装包已打开，等待安装"
             sleep 80
             xdotool key Tab
             sleep 0.5
