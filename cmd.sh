@@ -28,9 +28,10 @@ if [ $NOTIFY_URL ];then
     echo "HOOK 疑似注入失败，19088 端口未监听，请手动检查是否注入成功"
     status = "fail"
   fi
-  curl -X POST $NOTIFY_URL -H 'Content-Type: application/json' -d '{"status": "'"$status"'", "robot": "'"$REMARK"'"}'
+  curl -X POST $NOTIFY_URL -H 'Content-Type: application/json' -d '{"status": "'"$status"'", "robot": "'"$REMARK"'", "apiHost": "'"$API"'"}'
 else
   echo "未配置回调通知地址，跳过通知消息发送"
+  echo "如果需要，请配置NOTIFY_URL、REMARK、API三个环境变量，它们分别是通知地址、机器人备注、外部请求机器人的API地址"
 fi
 
 wait

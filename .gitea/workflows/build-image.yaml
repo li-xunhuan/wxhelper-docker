@@ -28,17 +28,44 @@ jobs:
             WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.8.25/WeChatSetup-3.9.8.25.exe
             WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.8.25-v2/wxhelper.dll
       
+      - name: Build 3.9.8.25 version with noVNC
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: lxh01/wxhelper-docker:3.9.8.25-v2
+          file: Dockerfile.novnc
+          build-args: |
+            WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.8.25/WeChatSetup-3.9.8.25.exe
+            WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.8.25-v2/wxhelper.dll
+      
       - name: Build 3.9.5.81 version
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: lxh01/wxhelper-docker:3.9.5.81-v11
       
+      - name: Build 3.9.5.81 version with noVNC
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: lxh01/wxhelper-docker:3.9.5.81-v11
+          file: Dockerfile.novnc
+      
       - name: Build 3.9.8.25 version
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: lxh01/wxhelper-docker:3.9.2.23-v9
+          build-args: |
+            WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
+            WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23-v9/wxhelper.dll
+      
+      - name: Build 3.9.8.25 version with noVNC
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: lxh01/wxhelper-docker:3.9.2.23-v9
+          file: Dockerfile.novnc
           build-args: |
             WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
             WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23-v9/wxhelper.dll
