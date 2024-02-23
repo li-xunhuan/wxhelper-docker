@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+
+# 启动窗口管理器
+bash -c 'nohup /entrypoint.sh 2>&1 &'
+sleep 10
+sudo netstat -ntlp
+
 ## https://gitlab.com/cunidev/gestures/-/wikis/xdotool-list-of-key-codes
 function install() {
     while :
