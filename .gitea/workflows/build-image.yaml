@@ -32,7 +32,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: lxh01/wxhelper-docker:3.9.8.25-v2
+          tags: lxh01/wxhelper-docker:3.9.8.25-v2-novnc
           file: Dockerfile.novnc
           build-args: |
             WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.8.25/WeChatSetup-3.9.8.25.exe
@@ -48,10 +48,10 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: lxh01/wxhelper-docker:3.9.5.81-v11
+          tags: lxh01/wxhelper-docker:3.9.5.81-v11-novnc
           file: Dockerfile.novnc
       
-      - name: Build 3.9.8.25 version
+      - name: Build 3.9.2.23 version
         uses: docker/build-push-action@v2
         with:
           push: true
@@ -60,11 +60,11 @@ jobs:
             WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
             WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.2.23-v9/wxhelper.dll
       
-      - name: Build 3.9.8.25 version with noVNC
+      - name: Build 3.9.2.23 version with noVNC
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: lxh01/wxhelper-docker:3.9.2.23-v9
+          tags: lxh01/wxhelper-docker:3.9.2.23-v9-novnc
           file: Dockerfile.novnc
           build-args: |
             WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.2.23/WeChatSetup-3.9.2.23.exe
