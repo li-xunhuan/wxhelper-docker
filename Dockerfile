@@ -3,6 +3,8 @@ FROM lxh01/wine-vnc:latest
 # 清理环境
 RUN sudo rm -rf /tmp/.X0-lock
 
+ENV WINEDEBUG=fixme-all
+
 # 根据传入参数安装微信和wxhelper.dll
 ARG WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.5.81/WeChatSetup-3.9.5.81.exe
 ARG WXHELPER_URL=https://github.com/ttttupup/wxhelper/releases/download/3.9.5.81-v11/wxhelper.dll
