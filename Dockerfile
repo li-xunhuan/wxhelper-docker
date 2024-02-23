@@ -13,6 +13,7 @@ WORKDIR /home/app/.wine/drive_c
 
 # 补充Windows字体
 COPY ./Fonts ./windows/Fonts
+RUN sudo chown -R app:app ./windows/Fonts
 
 # 加载注入器
 ADD https://github.com/furacas/DllInjector/releases/download/v1.4.0/DllInjector64.exe DllInjector.exe
