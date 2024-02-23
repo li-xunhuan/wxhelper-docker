@@ -3,7 +3,7 @@
 exec sudo -E bash -c 'supervisord -c /etc/supervisord.conf -l /var/log/supervisord.log' &
 sleep 10
 
-if [ ! -d "/home/app/.wine/drive_c/Program Files/Tencent" ]; then
+if [ -d "/home/app/.wine/drive_c/Program Files/Tencent" ]; then
   echo '启动64位微信'
   wine 'C:\Program Files\Tencent\WeChat\WeChat.exe' &
 else
