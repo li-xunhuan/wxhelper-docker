@@ -28,7 +28,7 @@ RUN sudo chmod a+x install-wechat.sh && ./install-wechat.sh
 RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 
 # 处理中文字体
-RUN sudo apt install -y winetricks && winetricks cjkfonts
+RUN sudo apt-get update -y && sudo apt-get install -y winetricks && winetricks cjkfonts
 
 EXPOSE 8080 19088
 
