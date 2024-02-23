@@ -42,8 +42,8 @@ function install() {
     done
 }
 
-# wine WeChatSetup.exe &
-
+wine WeChatSetup.exe &
+sudo ps -ef
 sleep 1m
 install
 wait
