@@ -3,6 +3,7 @@
 function install() {
     while :
     do
+        sudo ps -ef
         xdotool search '微信安装向导'
         NOTFOUND=$?
         echo $NOTFOUND
@@ -42,8 +43,10 @@ function install() {
     done
 }
 
+id
+
 wine WeChatSetup.exe &
-sudo ps -ef
+
 sleep 1m
 install
 wait
