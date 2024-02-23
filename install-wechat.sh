@@ -42,7 +42,7 @@ function install() {
     done
 }
 
-wine WeChatSetup.exe &
+# wine WeChatSetup.exe &
 
 sleep 1m
 install
