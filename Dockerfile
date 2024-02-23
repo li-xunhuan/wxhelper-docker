@@ -1,4 +1,4 @@
-FROM furacas/wine-vnc-box:latest
+FROM lxh01/wine-vnc:latest
 
 # 根据传入参数安装微信和wxhelper.dll
 ARG WECHAT_URL=https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.9.5.81/WeChatSetup-3.9.5.81.exe
@@ -28,6 +28,8 @@ RUN rm -rf WeChatSetup.exe && rm -rf install-wechat.sh
 # 下载wxhelper.dll
 ADD ${WXHELPER_URL} wxhelper.dll
 RUN sudo chown app:app wxhelper.dll
+
+EXPOSE 5900 19088
 
 COPY cmd.sh /cmd.sh
 CMD ["/cmd.sh"]
