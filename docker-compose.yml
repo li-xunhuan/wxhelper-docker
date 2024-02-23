@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 8080:8080
+      - 5900:5900
       - 19088:19088
 
   39581-v11:
@@ -25,7 +25,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 8080:8080
+      - 5900:5900
       - 19088:19088
   
   39223-v9:
@@ -40,5 +40,5 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - 8080:8080
+      - 5900:5900
       - 19088:19088
