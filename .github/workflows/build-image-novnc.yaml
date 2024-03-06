@@ -1,4 +1,4 @@
-name: BuildImage
+name: Build-noVNC-Image
 
 on:
   push:
